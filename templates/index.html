@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Caption Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 5%;
+            background-color: #D8EFD3;
+            color: #495057;
+            padding-bottom: 5%;
+
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #416855;
+        }
+        h2 {
+            color: #416855;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        .form-control-file {
+            display: inline-block;
+            width: 100%;
+            max-width: 400px;
+        }
+        .btn-primary {
+            background-color: #416855;
+            border-color: #416855;
+        }
+        .btn-primary:hover {
+            background-color: #a9c4b7;
+            border-color: #416855;
+            color: #416855;
+
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            border: none;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            background-color: #ffffff;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .file-input {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+        .file-input label {
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title">Image Caption Generator</h1>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="file-input mb-4">
+                        <label for="file">Upload an Image</label>
+                        <input type="file" class="form-control-file" id="file" name="file" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Caption</button>
+                </form>
+                {% if caption %}
+                    <div class="mt-4">
+                        <h2>Generated Caption:</h2>
+                        <p>{{ caption }}</p>
+                        <img src="{{ image_url }}" class="img-fluid rounded" alt="Uploaded Image">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
